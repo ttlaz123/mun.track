@@ -17,7 +17,106 @@
 var VERSION = "1.5";
 var SOCKET_URL = "http://mobile.muntrackapp.com";
 
-var countryList = ["Afghanistan", "Aland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua And Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia And Herzegovina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "DR Congo", "Democratic Republic of the Congo", "Cook Islands", "Costa Rica", "Cote D'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard Island And Mcdonald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle Of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "South Korea", "North Korea", "Korea", "Kuwait", "Kyrgyzstan", "Lao People'S Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao", "Macedonia, The Former Yugoslav Republic Of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States Of", "Moldova, Republic Of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Palestinian Territory, Occupied", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Helena", "Saint Kitts And Nevis", "Saint Lucia", "Saint Pierre And Miquelon", "Saint Vincent And The Grenadines", "Samoa", "San Marino", "Sao Tome And Principe", "Saudi Arabia", "Senegal", "Serbia And Montenegro", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia And The South Sandwich Islands", "Spain", "Sri Lanka", "Sudan", "Suriname", "Svalbard And Jan Mayen", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan, Province Of China", "Tajikistan", "Tanzania, United Republic Of", "Thailand", "Timor-Leste", "Togo", "Tokelau", "Tonga", "Trinidad And Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks And Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Viet Nam", "Virgin Islands, British", "Virgin Islands, U.S.", "Wallis And Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"];
+var countryList = [ //member states
+					"Afghanistan", "Albania", "Algeria", 
+				    "Andorra", "Angola",  
+					"Antigua and Barbuda", "Argentina", "Armenia", "Australia",
+					"Austria", "Azerbaijan", 
+					
+					"Bahamas", "Bahrain", "Bangladesh", "Barbados", 
+					"Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", 
+					"Bosnia And Herzegovina", "Botswana", "Brazil", 
+					"Brunei Darussalam", "Brunei", "Bulgaria",  
+					"Burkina Faso", "Burundi", 
+					
+					"Cabo Verde", "Cambodia", "Cameroon", "Canada", 
+					"Central African Republic", "CAR", "Chad", "Chile", "China", 
+					"Colombia", "Comoros", 
+					"Congo", "Costa Rica", "Cote D'Ivoire", "Croatia", 
+					"Cuba", "Cyprus", "Czech Republic", 
+					
+					"Democratic People's Republic of Korea", "DPRK", "North Korea"
+					"DR Congo", "Democratic Republic of the Congo","Denmark", 
+					"Djibouti", "Dominica", "Dominican Republic", 
+					
+					"Ecuador", "Egypt", 
+					"El Salvador", "Equatorial Guinea", 
+					"Eritrea", "Estonia", "Ethiopia", 
+					
+					"Fiji", "Finland", "France", 
+					
+					"Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", 
+					"Grenada", "Guatemala", "Guinea", "Guinea Bissau", 
+					"Guyana", 
+					
+					"Haiti", "Honduras","Hungary", 
+					
+					"Iceland", "India", "Indonesia", "Iran", "Iraq", 
+					"Ireland", "Israel", "Italy", 
+					
+					"Jamaica", "Japan", "Jordan",
+					
+					"Kazakhstan", "Kenya", "Kiribati", "Kuwait", 
+					"Kyrgyzstan", 
+					
+					"Lao People's Democratic Republic", "Laos", 
+					"Latvia", "Lebanon", "Lesotho", 
+					"Liberia", "Libya", "Liechtenstein",
+					"Lithuania", "Luxembourg", 
+					
+				    "Madagascar", "Malawi", "Malaysia", 
+					"Maldives", "Mali", "Malta", 
+					"Marshall Islands", "Mauritania", "Mauritius", 
+					"Mexico", "Micronesia, Federated States Of", "Micronesia",
+				    "Monaco", 
+					"Mongolia", "Morocco", "Mozambique", "Myanmar", 
+					
+					"Namibia", "Nauru", "Nepal", 
+					"Netherlands", "New Zealand", "Nicaragua", "Niger", 
+					"Nigeria", "Norway", 
+					
+					"Oman", 
+					
+					"Pakistan", 
+					"Palau", "Panama", "Papua New Guinea", "Paraguay", 
+					"Peru", "Philippines", "Poland", "Portugal", 
+					
+					"Qatar", 
+					
+					"Republic of Korea", "South Korea", 
+					"Republic of Moldova", "Moldova",
+					"Romania", "Russian Federation", "Russia",
+					"Rwanda", 
+					
+				    "Saint Kitts And Nevis", "Saint Lucia", 
+				    "Saint Vincent And The Grenadines", "Samoa", "San Marino", 
+					"Sao Tome And Principe", "Saudi Arabia", "Senegal", "Serbia" , "Seychelles", 
+					"Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", 
+					"South Africa", "South Sudan", "Spain", "Sri Lanka", 
+					"Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", 
+					"Syrian Arab Republic", "Syria", 
+					
+					"Tajikistan", "Thailand", 
+					"The former Yugoslav Republic of Macedonia", "Macedonia",
+					"Timor-Leste", "Togo", "Tonga", "Trinidad And Tobago", 
+					"Tunisia", "Turkey", "Turkmenistan", "Tuvalu", 
+					
+					"Uganda", "Ukraine", "United Arab Emirates", 
+					"United Kingdom of Great Britain and Northern Ireland", 
+					"United Kingdom", "UK",
+					"United States of America", "United States", "USA"
+				    "Uruguay", "Uzbekistan", 
+					
+					"Vanuatu", "Venezuela, Bolivarian Republic of",
+					"Venezuela", "Viet Nam", 
+					
+					"Yemen", 
+					
+					"Zambia", "Zimbabwe",
+					//non-member states
+					"Holy See*", "Vatican City*",
+					"State of Palestine*", "Palestine*"
+					];
 
 var isCountryPrompt = false;
 var isPrompt = false;
@@ -306,7 +405,7 @@ function process(command) {
 			break;
 		case "sh":
 		case "settitle":
-			prompt("set title to?", setTitle, $("#title").html());
+			prompt("set topic to?", setTitle, $("#title").html());
 			break;
 		case "sq":
 		case "setquorum":
@@ -380,7 +479,7 @@ function tallyAbstain(input) {
 	tally[2] = parseInt(input) || 0;
 	tallyResults();
 
-	var result = (tally[0] != tally[1] ? (tally[0] > tally[1] ? "passes" : "fails") : "ties");
+	var result = (tally[0] > Math.ceil(quorum / 2.0) )? "passes" : "fails";
 	$("#vote-results").html(result).addClass(result);
 
 	prompt("resolution " + result + ". reveal?", tallyReveal, "yes");
@@ -524,6 +623,7 @@ function clear(input) {
 }
 
 function change(input) {
+	print("which number?");
 	country = parseInt(input);
 	if (isNaN(country) || country > countries[list].length || country < 0) {
 		print("invalid country");
